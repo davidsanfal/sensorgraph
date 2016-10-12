@@ -1,0 +1,24 @@
+
+{% extends "base.html" %}
+{% load bootstrap3 %}
+{% block title %}Upload{% endblock %}
+{% block content %}
+    <div class="container  text-center">
+      {% if msg %}
+      <div class="alert alert-{{msg.status}}" role="alert">
+        <h4>{{msg.title}}</h4>
+        {% for content in msg.content %}<p>{{ content }}</p>{% endfor %}
+      </div>
+      {% endif %}
+        <h2>CSV Files Uploader</h2>
+        <form method="post" action="/upload/" enctype="multipart/form-data"> {% csrf_token %}
+            <p>Select CSV files</p>
+            <p><label class="btn btn-default btn-file">
+              <input type="file" name="files" multiple/>
+            </label></p>
+            <p><label class="btn btn-default">
+              Upload Files <input type="submit" value="upload" style="display: none;"/>
+            </label></p>
+        </form>
+    </div>
+{% endblock %}

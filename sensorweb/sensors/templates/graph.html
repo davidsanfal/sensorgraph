@@ -1,0 +1,73 @@
+
+{% extends "base.html" %}
+{% load bootstrap3 %}
+{% load static %}
+{% block title %}Graph{% endblock %}
+
+{% block head %}
+    <script src="{% static 'jquery.flot.js' %}"></script>
+  {% endblock %}
+  {% block content %}
+    <div class="container">
+    <div class="row">
+      <div class="col-lg-3">
+        <h2>Graph Parameters</h2>
+        <form method="post" class="form">
+          {% csrf_token %}
+          {% bootstrap_form form layout='horizontal' %}
+          {% buttons submit='OK' reset='Cancel' layout='horizontal' %}{% endbuttons %}
+        </form>
+      </div>
+      <div class="col-lg-9">
+        {% if charts %}
+          {% for signal, chart in charts %}
+          <script type="text/javascript">
+          	$(function() {
+          		$("<div id='tooltip'></div>").css({
+          			position: "absolute",
+          			display: "none",
+          			border: "1px solid #fdd",
+          			padding: "2px",
+          			"background-color": "#fee",
+          			opacity: 0.80
+          		}).appendTo("body");
+
+          		$("#placeholder{{ signal }}").bind("plothover", function (event, pos, item) {
+
+          			var str = "(" + pos.x.toFixed(2) + ", " + pos.y.toFixed(2) + ")";
+          			$("#hoverdata").text(str);
+
+          			if (item) {
+          					var y = item.datapoint[1].toFixed(2);
+
+          					$("#tooltip").html("Value: " + y)
+          						.css({top: item.pageY+5, left: item.pageX+5})
+          						.fadeIn(200);
+          				} else {
+          					$("#tooltip").hide();
+          				}
+          		});
+
+          		$("#placeholder{{ signal }}").bind("plotclick", function (event, pos, item) {
+          			if (item) {
+          				$("#clickdata").text(" - click point " + item.dataIndex + " in " + item.series.label);
+          				plot.highlight(item.series, item.datapoint);
+          			}
+          		});
+
+          	});
+      	  </script>
+          <div id="placeholder{{ signal }}">
+          {{ chart.as_html }}
+          </div>
+          {% endfor %}
+        {% else %}
+        <div class="text-center">
+          <h2>Nothing to show<h2>
+          <img class="img-responsive center-block" src="{% static 'graph.png' %}">
+        </div>
+        {% endif %}
+
+      </div>
+    </div>
+  {% endblock %}

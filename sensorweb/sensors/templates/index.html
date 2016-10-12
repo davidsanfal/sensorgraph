@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+{% load static %}
+{% block title %}Sensorgraph{% endblock %}
+
+{% block head %}{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="jumbotron text-center">
+    <h1>Sensorgraph</h1>
+    <p class="lead">Draw sensor info from CSV.</p>
+    {{STATIC_URL}}
+    <img class="img-responsive center-block" src="{% static 'graph.png' %}">
+    <br>
+  </div>
+</div>
+{% endblock %}
