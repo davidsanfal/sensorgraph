@@ -18,4 +18,9 @@ TODO
 
 ##Components
 
-TODO
+[django](https://github.com/django/django)
+[django-graphos](https://github.com/agiliq/django-graphos)
+[python-dateutil](https://pypi.python.org/pypi/python-dateutil)
+[jquery](https://jquery.com/)
+[bootstrap](https://github.com/twbs/bootstrap)
+[flot](https://github.com/flot/flot)

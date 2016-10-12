@@ -7,9 +7,9 @@ from sensors.models import Sensor
 from sensors.utils.sensor_utils import sensor_types
 
 
-period_delta = {'delta': {'day': datetime.timedelta(days=1),
-                          'week': datetime.timedelta(days=7),
-                          'month': relativedelta(months=1)}}
+period_delta = {'day': datetime.timedelta(days=1),
+                'week': datetime.timedelta(days=7),
+                'month': relativedelta(months=1)}
 
 
 minTickSize = {'day': [1, "day"],
