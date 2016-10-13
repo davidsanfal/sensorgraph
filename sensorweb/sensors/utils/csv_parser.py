@@ -6,6 +6,7 @@ from sensors.exceptions import FileContentException, FileNameException
 
 
 def parser(files):
+    '''Parse a file list and converts each line in a Sensor'''
     if files:
         file_names = []
         for csv in files:
@@ -23,6 +24,7 @@ def parser(files):
         return file_names
 
 def parse_line(sensor, acquisition_date, line):
+    '''Parse and converts a line in a Sensor'''
     try:
         signal, timestamp, value = line.decode().split(',')
         return Sensor(sensor=sensor,
@@ -35,6 +37,7 @@ def parse_line(sensor, acquisition_date, line):
 
 
 def save_sensor(sensor):
+    '''Save a Sensor in the DB'''
     try:
         rows = Sensor.objects.filter(sensor=sensor.sensor,
                                      signal=sensor.signal,

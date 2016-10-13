@@ -8,19 +8,19 @@
     <script src="{% static 'jquery.flot.js' %}"></script>
   {% endblock %}
   {% block content %}
-    <div class="container">
+    <div class="container text-center">
     <div class="row">
       <div class="col-lg-3">
         <h2>Graph Parameters</h2>
         <form method="post" class="form">
           {% csrf_token %}
-          {% bootstrap_form form layout='horizontal' %}
-          {% buttons submit='OK' reset='Cancel' layout='horizontal' %}{% endbuttons %}
+          {% bootstrap_form form %}
+          {% buttons submit='OK'%}{% endbuttons %}
         </form>
       </div>
       <div class="col-lg-9">
-        {% if charts %}
-          {% for signal, chart in charts %}
+        {% if graphs %}
+          {% for signal, graph in graphs %}
           <script type="text/javascript">
           	$(function() {
           		$("<div id='tooltip'></div>").css({
@@ -58,7 +58,7 @@
           	});
       	  </script>
           <div id="placeholder{{ signal }}">
-          {{ chart.as_html }}
+          {{ graph.as_html }}
           </div>
           {% endfor %}
         {% else %}
