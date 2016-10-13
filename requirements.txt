@@ -1,3 +1,4 @@
 django
 django-graphos
+django-bootstrap3
 python-dateutil
