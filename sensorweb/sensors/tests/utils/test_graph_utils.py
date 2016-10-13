@@ -4,6 +4,7 @@ from sensors.utils.graph_utils import split_dataset
 from sensors.exceptions import FileContentException
 from sensors.models import Sensor
 
+
 class GraphUtilsTestCase(TestCase):
 
     def setUp(self):

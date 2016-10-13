@@ -4,6 +4,7 @@ from sensors.utils.csv_parser import parse_line, save_sensor
 from sensors.exceptions import FileContentException
 from sensors.models import Sensor
 
+
 class CSVParserTestCase(TestCase):
 
     def test_parse_line(self):

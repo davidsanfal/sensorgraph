@@ -23,6 +23,7 @@ def parser(files):
                     raise FileContentException(msg)
         return file_names
 
+
 def parse_line(sensor, acquisition_date, line):
     '''Parse and converts a line in a Sensor'''
     try:

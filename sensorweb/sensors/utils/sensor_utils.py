@@ -4,8 +4,10 @@
     TODO: Moves the sensor_types to a config file or a DB.
 '''
 
+
 def average(data):
     return sum(data) / float(len(data))
+
 
 sensor_types = {'thermometer': {'grouping': average},
                 'anemometer': {'grouping': average},

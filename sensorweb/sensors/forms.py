@@ -8,6 +8,7 @@ def sensor_options():
      sensors = set(Sensor.objects.values_list('sensor', flat=True))
      return tuple([(s, s) for s in sensors])
 
+
 class GraphForm(forms.Form):
     init=forms.DateField(initial=datetime.date.today)
     end=forms.DateField(initial=datetime.date.today)
