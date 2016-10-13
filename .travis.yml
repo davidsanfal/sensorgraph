@@ -4,4 +4,4 @@ python:
 install:
   - pip install -r requirements.txt
 script:
-  - cd sensorweb && python manager.py test
+  - cd sensorweb && python manage.py test
