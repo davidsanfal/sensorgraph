@@ -36,6 +36,7 @@ With the csv test files you can see the thermometer sensor_1 signal between 1999
 ##Components
 
 * [django](https://github.com/django/django)
+* [django-bootstrap3](https://github.com/dyve/django-bootstrap3)
 * [django-graphos](https://github.com/agiliq/django-graphos)
 * [python-dateutil](https://pypi.python.org/pypi/python-dateutil)
 * [jquery](https://jquery.com/)
